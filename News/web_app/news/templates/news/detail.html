@@ -1,0 +1,14 @@
+{% extends 'main/general.html' %}
+
+{% block title %}
+    {{ detail.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="detail">
+        <h1>{{ detail.title }}</h1>
+        <p>{{ detail.text }}</p>
+        <p>{{ detail.date }}</p>
+        <a href="{% url 'news_home' %}"><button class="btn btn-secondary btn-sm">Назад</button></a>
+    </div>
+{% endblock %}

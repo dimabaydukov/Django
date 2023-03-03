@@ -1,0 +1,18 @@
+{% extends 'main/general.html' %}
+
+{% block title %}
+    Удаление статьи
+{% endblock %}
+
+{% block content %}
+    <div class="detail">
+        <h1>{{ detail.title }}</h1>
+        <p>{{ detail.text }}</p>
+        <p>{{ detail.date }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-secondary" type="submit">Удалить статью</button>
+        </form><br>
+        <a href="{% url 'news_home' %}"><button class="btn btn-secondary btn-sm">Назад</button></a>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'main/general.html' %}
+
+{% block title %}
+    Обновление записи
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Обновление записи</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.title }}<br>
+            {{ form.text }}<br>
+            {{ form.date }}<br>
+
+            <button class="btn btn-secondary" type="submit">Обновить запись</button>
+        </form>
+    </div>
+{% endblock %}

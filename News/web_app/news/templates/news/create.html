@@ -1,0 +1,22 @@
+{% extends 'main/general.html' %}
+
+{% block title %}
+    Добавление статьи
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Добавление статьи</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.title }}<br>
+            {{ form.text }}<br>
+            {{ form.date }}<br>
+
+            <div class="error"><span >{{ error }}</span><br></div>
+
+            <button class="btn btn-secondary" type="submit">Опубликовать статью</button>
+        </form>
+    </div>
+{% endblock %}

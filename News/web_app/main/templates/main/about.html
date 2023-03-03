@@ -1,0 +1,15 @@
+{% extends 'main/general.html' %}
+
+{% load static %}
+
+{% block title %}
+    О нас
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>О нас</h1>
+        <p>Этот сайт сделан с целью ознакомления с замечательным фреймворком Django.</p>
+        <img src="{% static 'main/images/django.png' %}" alt="Django" class="django">
+    </div>
+{% endblock %}

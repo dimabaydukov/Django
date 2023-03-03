@@ -1,0 +1,23 @@
+{% extends 'main/general.html' %}
+
+{% block title %}
+    Регистрация
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Регистрация пользователя</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            {% for f in form %}
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+            <div class="error">{{ f.errors }}</div>
+            {% endfor %}
+
+            <div class="error"><span >{{ error }}</span><br></div>
+
+            <button class="btn btn-secondary" type="submit">Зарегистрировать</button>
+        </form>
+    </div>
+{% endblock %}

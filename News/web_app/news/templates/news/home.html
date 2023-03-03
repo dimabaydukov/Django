@@ -1,0 +1,27 @@
+{% extends 'main/general.html' %}
+
+{% block title %}
+    Новости
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Новости</h1>
+        {% for item in news %}
+        <div class="bor">
+            <div class="news">
+                <h3>{{ item.title }}</h3>
+                {% if item.text|length < 300 %}
+                    <p>{{ item.text }}</p>
+                {% else %}
+                    <p>{{ item.text|truncatewords:50 }}<a href="{% url 'detail' item.id %}"> читать далее</a></p>
+                {% endif %}
+                <p>{{ item.date }}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'update' item.id %}"><i class="fa-solid fa-gear"></i></a><a href="{% url 'delete' item.id%}"><i class="fa-solid fa-trash"></i></a></p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'main/general.html' %}
+
+{% block title %}
+  Авторизация
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Авторизация пользователя</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="error">{{ form.non_field_errors }}</div>
+
+            {% for f in form %}
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+            <div class="error">{{ f.errors }}</div>
+            {% endfor %}
+
+            <div class="error"><span >{{ error }}</span><br></div>
+
+            <button class="btn btn-secondary" type="submit">Авторизоваться</button>
+        </form>
+    </div>
+{% endblock %}
